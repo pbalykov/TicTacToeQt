@@ -2,13 +2,12 @@
 #include <cmath>
 #include <cstdlib>
 #include <vector>
-#include <iostream>
+#include <QDebug>
 
 std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
     int max = -1;
     for (auto i : arr) {
-        printf("<%d %d>  ", i.first, i.second);
         if ( i.first > max ) {
             max = i.first;
             score = 1;
@@ -19,7 +18,6 @@ std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int rand = std::rand() % score;
     for  (auto i : arr ) {
         if ( i.first == max && !rand--) {
-            printf("\nMax = <%d %d>\n", i.first, i.second);
             return i;
         }
     }
@@ -29,9 +27,7 @@ std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
 std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
     int min = LEN * LEN + 1;
-    printf("Min: ");
     for (auto i : arr) {
-        printf("<%d %d>  ", i.first, i.second);
         if ( i.first < min ) {
             min = i.first;
             score = 1;
@@ -42,7 +38,6 @@ std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
     int rand = std::rand() % score;
     for  (auto i : arr ) {
         if ( i.first == min && !rand--) {
-            printf("\nMin = <%d %d>\n", i.first, i.second);
             return i;
         }
     }
@@ -50,9 +45,8 @@ std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
 }
 
 std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell) {
-    auto wing = getEndGame();
+    auto wing = getWing();
     if ( wing != CELL_VALUE::NONE ) {
-        printf("Wing %d\n", wing);
         return {static_cast<short>(wing), 0};
     }
     if ( score == LEN * LEN + 1 )  {
@@ -73,7 +67,7 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell) {
         }
     }
     if ( cell == CELL_VALUE::ZERO ) {
-        return this->_max(arr);
+        return this->_max(arr); //Поменять !!!
     }
     return this->_min(arr);
 }
@@ -86,17 +80,25 @@ TicTacToe::CELL_VALUE TicTacToe::setValue(short index) {
     if ( !this->_game ) {
         return CELL_VALUE::NONE;
     }
-    short x = index % 3;
+    short x = index % LEN;
     short y = index / LEN;
-    if  ( this->_data[y][x] == 0 ) {
-        this->_data[y][x] = this->_score++ % 2 == 0 ? 1 : -1;
-  //      this->_game = this->getEndGame() != CELL_VALUE::NONE : ;
+    if  ( !this->_data[y][x] ) {
+        this->_data[y][x] = this->_score % 2 == 0 ?
+             static_cast<int>(CELL_VALUE::CROSS) : static_cast<int>(CELL_VALUE::ZERO);
+        qDebug() << this->_data[y][x];
+        this->_game = this->getWing() != CELL_VALUE::NONE || this->_score == LEN * LEN ? false : true;
+        this->_score++;
         return static_cast<CELL_VALUE>(this->_data[y][x]);
     }
     return CELL_VALUE::NONE;
 }
 
-TicTacToe::CELL_VALUE TicTacToe::getEndGame() const {
+bool TicTacToe::getEndGame() const {
+    return this->_game;
+}
+
+
+TicTacToe::CELL_VALUE TicTacToe::getWing() const {
     for (int i = 0; i < LEN; i++) {
         if ( this->_data[i][0] && this->_data[i][0] == this->_data[i][1] && 
              this->_data[i][1] == this->_data[i][2] ) {
@@ -117,28 +119,14 @@ TicTacToe::CELL_VALUE TicTacToe::getEndGame() const {
     }
     return CELL_VALUE::NONE;
 }       
-/*
-    int diagonals_first = 0, diagonals_second = 0;
-    for (int i = 0; i < LEN; i++) {
-        int columns_x = 0, columns_y = 0;
-        for (int j = 0; j < LEN; j++) {
-            columns_x += this->_data[i][j];
-            columns_y += this->_data[j][i];
-        }
-        if ( std::abs(columns_x) == LEN || std::abs(columns_y) == LEN )
-            return true;
-        diagonals_first += this->_data[i][i];
-        diagonals_second += this->_data[i][LEN - i - 1];
-    }
-    if ( std::abs(diagonals_first) == LEN || 
-            std::abs(diagonals_second) == LEN ) 
-        return true;
-    return false;   
-}*/
 
 
 std::pair<TicTacToe::CELL_VALUE, int> TicTacToe::setBot() {
-    auto value = this->_bot(this->_score + 1, CELL_VALUE::CROSS);
+    if ( !this->_game ) {
+        return {CELL_VALUE::NONE, -1};
+    }
+    CELL_VALUE cell = (this->_score + 1) % 2 ? CELL_VALUE::CROSS : CELL_VALUE::ZERO;
+    auto value = this->_bot(this->_score + 1, cell);
     if ( value.second == -1 ) {
         return {CELL_VALUE::NONE, -1};
     }

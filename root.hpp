@@ -5,6 +5,7 @@
 #include <QPushButton>
 #include <QVector>
 #include "tic_tac_toe.hpp"
+#include "cell.hpp"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Root; }
@@ -21,10 +22,10 @@ private slots:
     void on_updateButton_clicked();
 
 private:
-    void _buttonPress(QPushButton* value, int index);
+    void _buttonPress(Cell* value, int index);
 
     Ui::Root* _ui;
-    QVector<QPushButton*> _button_cell;
+    QVector<Cell*> _button_cell;
     TicTacToe _game;
 };
 

@@ -99,7 +99,7 @@
        <number>2</number>
       </property>
       <item row="0" column="2">
-       <widget class="QPushButton" name="cell2">
+       <widget class="Cell" name="cell2">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -112,7 +112,7 @@
        </widget>
       </item>
       <item row="2" column="2">
-       <widget class="QPushButton" name="cell8">
+       <widget class="Cell" name="cell8">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -125,7 +125,7 @@
        </widget>
       </item>
       <item row="1" column="2">
-       <widget class="QPushButton" name="cell5">
+       <widget class="Cell" name="cell5">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -138,7 +138,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QPushButton" name="cell1">
+       <widget class="Cell" name="cell1">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -164,7 +164,7 @@
        </spacer>
       </item>
       <item row="2" column="3">
-       <widget class="QPushButton" name="cell9">
+       <widget class="Cell" name="cell9">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -177,7 +177,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QPushButton" name="cell4">
+       <widget class="Cell" name="cell4">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -190,7 +190,7 @@
        </widget>
       </item>
       <item row="0" column="3">
-       <widget class="QPushButton" name="cell3">
+       <widget class="Cell" name="cell3">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -203,7 +203,7 @@
        </widget>
       </item>
       <item row="1" column="3">
-       <widget class="QPushButton" name="cell6">
+       <widget class="Cell" name="cell6">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -216,7 +216,7 @@
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QPushButton" name="cell7">
+       <widget class="Cell" name="cell7">
         <property name="minimumSize">
          <size>
           <width>65</width>
@@ -257,6 +257,13 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Cell</class>
+   <extends>QPushButton</extends>
+   <header>cell.hpp</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

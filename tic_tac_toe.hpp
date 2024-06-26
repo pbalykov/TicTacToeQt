@@ -15,7 +15,7 @@ public:
     TicTacToe();
     CELL_VALUE setValue(short index);
     
-    CELL_VALUE getEndGame() const;
+    bool getEndGame() const;
     CELL_VALUE getWing() const;
     std::pair<CELL_VALUE, int> setBot();   
 
