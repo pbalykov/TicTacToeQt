@@ -22,7 +22,8 @@ private slots:
     void on_updateButton_clicked();
 
 private:
-    void _buttonPress(Cell* value, int index);
+    void _installCell(int index, TicTacToe::CELL_VALUE type_cell);
+    void _buttonPress(int index);
 
     Ui::Root* _ui;
     QVector<Cell*> _button_cell;

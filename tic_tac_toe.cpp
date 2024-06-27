@@ -67,7 +67,7 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell) {
         }
     }
     if ( cell == CELL_VALUE::ZERO ) {
-        return this->_max(arr); //Поменять !!!
+        return this->_max(arr);
     }
     return this->_min(arr);
 }

@@ -6,7 +6,7 @@ Root::Root(QWidget* parent) : QMainWindow(parent)
     , _ui(new Ui::Root) {
 
     this->_ui->setupUi(this);
-    this->_ui->updateButton->setIcon(QIcon(":/image/update.jpg"));
+    this->_ui->updateButton->setIcon(QIcon(":/image/update.png"));
     this->_ui->updateButton->setIconSize(QSize(this->_ui->updateButton->size()));
     this->_button_cell = QVector<Cell*>(
                 {this->_ui->cell1, this->_ui->cell2, this->_ui->cell3,
@@ -16,7 +16,7 @@ Root::Root(QWidget* parent) : QMainWindow(parent)
 
     int caunt = 0;
     for (auto i : this->_button_cell) {
-        auto f_slot = [i, caunt, this] () { this->_buttonPress(i, caunt); };
+        auto f_slot = [caunt, this] () { this->_buttonPress(caunt); };
         QObject::connect(i, &Cell::clicked, f_slot);
         caunt++;
     }
@@ -28,8 +28,15 @@ Root::~Root() {
     return ;
 }
 
-void Root::_buttonPress(Cell *value, int index) {
+void Root::_buttonPress(int index) {
     auto type_cell = this->_game.setValue(index);
+    this->_installCell(index, type_cell);
+    auto valueBot = this->_game.setBot();
+    this->_installCell(valueBot.second, valueBot.first);
+    return ;
+}
+
+void Root::_installCell(int index, TicTacToe::CELL_VALUE type_cell) {
     switch ( type_cell ) {
         case TicTacToe::CELL_VALUE::ZERO :
             this->_button_cell[index]->setCell(TYPE_CELL::ZERO);
@@ -38,17 +45,10 @@ void Root::_buttonPress(Cell *value, int index) {
             this->_button_cell[index]->setCell(TYPE_CELL::CROSS);
             break;
         default :
-            return ;
+            break;
     }
-    auto valueBot = this->_game.setBot();
-    if ( valueBot.first == TicTacToe::CELL_VALUE::NONE ) {
-        return ;
-    }
-    this->_button_cell[valueBot.second]->setCell(TYPE_CELL::ZERO);
     return ;
 }
-
-
 
 void Root::on_updateButton_clicked() {
     qDebug() << "Restart";

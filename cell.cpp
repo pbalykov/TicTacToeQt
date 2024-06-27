@@ -8,14 +8,12 @@ void Cell::setCell(TYPE_CELL value) {
     }
     switch (value) {
         case TYPE_CELL::CROSS :
-            this->setStyleSheet(
-                    "QPushButton { color: #D2691E;}");
-            this->setText("X");
+            this->setStyleSheet(CSS_CROSS);
+            this->setText(SUMBOL_CROSS);
             break;
         case TYPE_CELL::ZERO :
-            this->setStyleSheet(
-                "QPushButton { color: #008000;}");
-            this->setText("0");
+            this->setStyleSheet(CSS_ZERO);
+            this->setText(SUMBOL_ZERO);
             break;
         define :
             return ;
@@ -30,10 +28,4 @@ void Cell::clear() {
     this->setStyleSheet("");
     this->setText("");
     this->setEnabled(this->isActive);
-}
-
-void Cell::offOnActive() {
-    if ( isActive ) {
-        this->setEnabled(false);
-    }
 }

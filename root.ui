@@ -16,6 +16,12 @@
     <height>354</height>
    </size>
   </property>
+  <property name="maximumSize">
+   <size>
+    <width>277</width>
+    <height>354</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>Root</string>
   </property>
@@ -256,6 +262,11 @@
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="abautProgram">
+   <property name="text">
+    <string>О программе...</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
