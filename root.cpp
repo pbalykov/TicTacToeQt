@@ -4,8 +4,9 @@
 
 Root::Root(QWidget* parent) : QMainWindow(parent)
     , _ui(new Ui::Root) {
-
+    
     this->_ui->setupUi(this);
+    this->setWindowTitle(NAME_WINDOW);
     this->_ui->updateButton->setIcon(QIcon(":/image/update.png"));
     this->_ui->updateButton->setIconSize(QSize(this->_ui->updateButton->size()));
     this->_button_cell = QVector<Cell*>(
@@ -51,7 +52,6 @@ void Root::_installCell(int index, TicTacToe::CELL_VALUE type_cell) {
 }
 
 void Root::on_updateButton_clicked() {
-    qDebug() << "Restart";
     for (auto i : this->_button_cell) {
         i->clear();
     }

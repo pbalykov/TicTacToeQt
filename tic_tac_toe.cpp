@@ -97,7 +97,6 @@ bool TicTacToe::getEndGame() const {
     return this->_game;
 }
 
-
 TicTacToe::CELL_VALUE TicTacToe::getWing() const {
     for (int i = 0; i < LEN; i++) {
         if ( this->_data[i][0] && this->_data[i][0] == this->_data[i][1] && 

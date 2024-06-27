@@ -13,6 +13,8 @@ QT_END_NAMESPACE
 
 class Root : public QMainWindow {
     Q_OBJECT
+    
+    static constexpr const char* NAME_WINDOW = "TicTacToeQt";
 
 public:
     Root(QWidget* parent = nullptr);
