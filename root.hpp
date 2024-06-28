@@ -23,6 +23,12 @@ public:
 private slots:
     void on_updateButton_clicked();
 
+    void on_action_exit_triggered();
+
+    void on_new_game_triggered();
+
+    void on_call_help_triggered();
+
 private:
     void _installCell(int index, TicTacToe::CELL_VALUE type_cell);
     void _buttonPress(int index);

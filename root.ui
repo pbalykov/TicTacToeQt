@@ -257,33 +257,53 @@
      <x>0</x>
      <y>0</y>
      <width>277</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>Игра</string>
     </property>
-    <addaction name="action"/>
+    <addaction name="new_game"/>
     <addaction name="separator"/>
-    <addaction name="action_3"/>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>Справка</string>
+    </property>
+    <addaction name="call_help"/>
    </widget>
    <addaction name="menu"/>
+   <addaction name="menu_2"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
   <action name="abautProgram">
    <property name="text">
     <string>О программе...</string>
    </property>
   </action>
-  <action name="action">
+  <action name="new_game">
    <property name="text">
-    <string>Уровень игры</string>
+    <string>Новая игра</string>
+   </property>
+   <property name="shortcut">
+    <string>F2</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="action_exit">
    <property name="text">
     <string>Выход</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="call_help">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
    </property>
   </action>
  </widget>

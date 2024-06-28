@@ -1,5 +1,7 @@
 #include "root.hpp"
+#include "descriptions.hpp"
 #include "ui_root.h"
+#include <QDebug>
 
 
 Root::Root(QWidget* parent) : QMainWindow(parent)
@@ -59,3 +61,17 @@ void Root::on_updateButton_clicked() {
     return ;
 }
 
+void Root::on_action_exit_triggered() {
+    this->close();
+    return ;
+}
+
+void Root::on_new_game_triggered() {
+    this->on_updateButton_clicked();
+    return ;
+}
+
+void Root::on_call_help_triggered() {
+    Descriptions* secondWindow = new Descriptions(this);
+    secondWindow->exec();
+}

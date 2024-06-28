@@ -6,16 +6,19 @@ CONFIG += c++17
 
 SOURCES += \
     cell.cpp \
+    descriptions.cpp \
     main.cpp \
     root.cpp \
     tic_tac_toe.cpp
 
 HEADERS += \
     cell.hpp \
+    descriptions.hpp \
     root.hpp \
     tic_tac_toe.hpp
 
 FORMS += \
+    descriptions.ui \
     root.ui
 
 TRANSLATIONS += \
