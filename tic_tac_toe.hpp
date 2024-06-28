@@ -13,10 +13,11 @@ public:
     
     static constexpr short LEN = 3;
     TicTacToe();
-    CELL_VALUE setValue(short index);
     
     bool getEndGame() const;
     CELL_VALUE getWing() const;
+
+    CELL_VALUE setValue(short index);
     std::pair<CELL_VALUE, int> setBot();   
 
 private:
@@ -30,4 +31,4 @@ private:
 
 };
 
-#endif // TIC_TAC_TOE_HPP
+#endif
