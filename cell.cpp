@@ -25,7 +25,7 @@ void Cell::setCell(TYPE_CELL value) {
 
 void Cell::clear() {
     this->isActive = true;
-    this->setStyleSheet("");
-    this->setText("");
+    this->setStyleSheet(CSS_DEFAULT);
+    this->setText(SUMBOL_DEFAULT);
     this->setEnabled(this->isActive);
 }

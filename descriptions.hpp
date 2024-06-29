@@ -7,10 +7,11 @@ namespace Ui {
 class Descriptions;
 }
 
-class Descriptions : public QDialog
-{
+class Descriptions : public QDialog {
     Q_OBJECT
     static constexpr const char* NAME_WINDOW = "О программе\"TicTacToeQt\"";
+    static constexpr const char* NAME_ICON = ":/image/icon.png";
+
 public:
     explicit Descriptions(QWidget* parent = nullptr);
     ~Descriptions();
