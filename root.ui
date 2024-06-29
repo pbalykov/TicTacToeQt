@@ -114,7 +114,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -132,7 +132,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -150,7 +150,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -168,7 +168,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -199,7 +199,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -217,7 +217,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -235,7 +235,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -253,7 +253,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -271,7 +271,7 @@
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>16</pointsize>
          </font>
         </property>
         <property name="text">
@@ -302,7 +302,7 @@
      <x>0</x>
      <y>0</y>
      <width>277</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
