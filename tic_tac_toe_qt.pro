@@ -5,28 +5,28 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++17
 
 SOURCES += \
-    cell.cpp \
-    descriptions.cpp \
-    main.cpp \
-    root.cpp \
-    tic_tac_toe.cpp
+    src/cell.cpp \
+    src/descriptions.cpp \
+    src/main.cpp \
+    src/root.cpp \
+    src/tic_tac_toe.cpp
 
 HEADERS += \
-    cell.hpp \
-    descriptions.hpp \
-    root.hpp \
-    tic_tac_toe.hpp
+    include/cell.hpp \
+    include/descriptions.hpp \
+    include/root.hpp \
+    include/tic_tac_toe.hpp
 
 FORMS += \
-    descriptions.ui \
-    root.ui
+    src/ui/descriptions.ui \
+    src/ui/root.ui
 
 TRANSLATIONS += \
-    tic_tac_toe_qt_en_US.ts
+    translations/tic_tac_toe_qt_en_US.ts
 
 CONFIG += lrelease
 CONFIG += embed_translations
 
 
 RESOURCES += \
-    resources.qrc
+    resources/resources.qrc
