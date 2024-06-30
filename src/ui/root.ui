@@ -302,16 +302,35 @@
      <x>0</x>
      <y>0</y>
      <width>277</width>
-     <height>24</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>Игра</string>
     </property>
+    <widget class="QMenu" name="menu_3">
+     <property name="tearOffEnabled">
+      <bool>false</bool>
+     </property>
+     <property name="title">
+      <string>Уровень игры</string>
+     </property>
+     <property name="separatorsCollapsible">
+      <bool>false</bool>
+     </property>
+     <property name="toolTipsVisible">
+      <bool>false</bool>
+     </property>
+     <addaction name="action_2"/>
+     <addaction name="action_3"/>
+     <addaction name="action_4"/>
+    </widget>
     <addaction name="new_game"/>
     <addaction name="separator"/>
-    <addaction name="action_exit"/>
+    <addaction name="menu_3"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit_2"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -351,12 +370,44 @@
     <string>F1</string>
    </property>
   </action>
+  <action name="action_2">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Легкий</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Средний</string>
+   </property>
+  </action>
+  <action name="action_4">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Сложный</string>
+   </property>
+  </action>
+  <action name="action_exit_2">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
  </widget>
  <customwidgets>
   <customwidget>
    <class>Cell</class>
    <extends>QPushButton</extends>
-   <header>../../include/cell.hpp</header>
+   <header>include/cell.hpp</header>
   </customwidget>
  </customwidgets>
  <resources/>
