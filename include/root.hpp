@@ -36,6 +36,7 @@ private:
     Ui::Root* _ui;
     QVector<Cell*> _button_cell;
     TicTacToe _game;
+    TicTacToe::COMPLEXITY _complexity_game;
 };
 
 #endif

@@ -302,14 +302,14 @@
      <x>0</x>
      <y>0</y>
      <width>277</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
     <property name="title">
      <string>Игра</string>
     </property>
-    <widget class="QMenu" name="menu_3">
+    <widget class="QMenu" name="difficulty_level">
      <property name="tearOffEnabled">
       <bool>false</bool>
      </property>
@@ -322,13 +322,13 @@
      <property name="toolTipsVisible">
       <bool>false</bool>
      </property>
-     <addaction name="action_2"/>
-     <addaction name="action_3"/>
-     <addaction name="action_4"/>
+     <addaction name="complexity_1"/>
+     <addaction name="complexity_2"/>
+     <addaction name="complexity_3"/>
     </widget>
     <addaction name="new_game"/>
     <addaction name="separator"/>
-    <addaction name="menu_3"/>
+    <addaction name="difficulty_level"/>
     <addaction name="separator"/>
     <addaction name="action_exit_2"/>
    </widget>
@@ -370,15 +370,18 @@
     <string>F1</string>
    </property>
   </action>
-  <action name="action_2">
+  <action name="complexity_1">
    <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
     <bool>true</bool>
    </property>
    <property name="text">
     <string>Легкий</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="complexity_2">
    <property name="checkable">
     <bool>true</bool>
    </property>
@@ -386,7 +389,7 @@
     <string>Средний</string>
    </property>
   </action>
-  <action name="action_4">
+  <action name="complexity_3">
    <property name="checkable">
     <bool>true</bool>
    </property>

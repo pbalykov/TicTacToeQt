@@ -1,7 +1,12 @@
 #include "../include/root.hpp"
 #include "../include/descriptions.hpp"
+
 #include "ui_root.h"
+
+#include <QActionGroup>
+#ifndef QT_DEBUG
 #include <QDebug>
+#endif
 
 
 Root::Root(QWidget* parent) : QMainWindow(parent)
@@ -23,6 +28,11 @@ Root::Root(QWidget* parent) : QMainWindow(parent)
         QObject::connect(i, &Cell::clicked, f_slot);
         caunt++;
     }
+    QActionGroup *group = new QActionGroup(this);
+    group->addAction(this->_ui->complexity_1);
+    group->addAction(this->_ui->complexity_2);
+    group->addAction(this->_ui->complexity_3);
+    group->setExclusive(true);
     return ;
 }
 
@@ -57,7 +67,7 @@ void Root::on_updateButton_clicked() {
     for (auto i : this->_button_cell) {
         i->clear();
     }
-    this->_game = TicTacToe();
+    this->_game = TicTacToe(this->_complexity_game);
     return ;
 }
 
@@ -74,4 +84,19 @@ void Root::on_new_game_triggered() {
 void Root::on_call_help_triggered() {
     Descriptions* secondWindow = new Descriptions(this);
     secondWindow->exec();
+}
+
+void Root::on_complexity_1_triggered() {
+    this->_complexity_game = TicTacToe::COMPLEXITY::LIGHT;
+    this->on_updateButton_clicked();
+}
+
+void Root::on_complexity_2_triggered() {
+    this->_complexity_game = TicTacToe::COMPLEXITY::AVERAGE;
+    this->on_updateButton_clicked();
+}
+
+void Root::on_complexity_3_triggered() {
+    this->_complexity_game = TicTacToe::COMPLEXITY::COMPLEX;
+    this->on_updateButton_clicked();
 }
