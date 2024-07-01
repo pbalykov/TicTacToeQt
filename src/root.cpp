@@ -9,8 +9,9 @@
 #endif
 
 
-Root::Root(QWidget* parent) : QMainWindow(parent)
-    , _ui(new Ui::Root) {
+Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
+    _complexity_game(TicTacToe::COMPLEXITY::AVERAGE), _game(_complexity_game)
+{
     
     this->_ui->setupUi(this);
     this->setWindowTitle(NAME_WINDOW);

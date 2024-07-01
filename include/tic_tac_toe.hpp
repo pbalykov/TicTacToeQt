@@ -14,8 +14,8 @@ public:
     };
 
     enum class COMPLEXITY {
-        LIGHT = LEN + 1,
-        AVERAGE = LEN + LEN + 1,
+        LIGHT = 1,
+        AVERAGE = LEN ,
         COMPLEX = LEN * LEN + 1,
     };
     

@@ -29,14 +29,20 @@ private slots:
 
     void on_call_help_triggered();
 
+    void on_complexity_1_triggered();
+
+    void on_complexity_2_triggered();
+
+    void on_complexity_3_triggered();
+
 private:
     void _installCell(int index, TicTacToe::CELL_VALUE type_cell);
     void _buttonPress(int index);
 
     Ui::Root* _ui;
     QVector<Cell*> _button_cell;
-    TicTacToe _game;
     TicTacToe::COMPLEXITY _complexity_game;
+    TicTacToe _game;
 };
 
 #endif
