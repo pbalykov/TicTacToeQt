@@ -15,7 +15,7 @@ void Cell::setCell(TYPE_CELL value) {
             this->setStyleSheet(CSS_ZERO);
             this->setText(SUMBOL_ZERO);
             break;
-        define :
+        default :
             return ;
     }
     this->isActive = false;

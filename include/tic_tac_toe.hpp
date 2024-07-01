@@ -36,7 +36,6 @@ private:
     short _score;
     bool _game;
     COMPLEXITY _complexity;
-
 };
 
 #endif

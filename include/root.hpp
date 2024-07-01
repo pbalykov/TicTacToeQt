@@ -15,6 +15,7 @@ class Root : public QMainWindow {
     Q_OBJECT
     
     static constexpr const char* NAME_WINDOW = "TicTacToeQt";
+    static constexpr const char* IMAGE_UPDATE = ":/image/update.png";
 
 public:
     Root(QWidget* parent = nullptr);

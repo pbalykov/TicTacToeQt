@@ -4,13 +4,11 @@
 #include <cstdlib>
 #include <vector>
 
-#include <QDebug>
-
 
 std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
     int max = -1;
-    for (auto i : arr) {
+    for (auto i : arr) {        
         if ( i.first > max ) {
             max = i.first;
             score = 1;
@@ -19,13 +17,9 @@ std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
         }
     }
     int rand = std::rand() % score;
-    qDebug() << "Max";
-    for  (auto i : arr ) {
-        qDebug() << i.first << i.second;
-        if ( i.first == max && !rand--) {
+    for  (auto i : arr )
+        if ( i.first == max && !rand--)
             return i;
-        }
-    }
     return {0, 0};
 }
 
@@ -41,13 +35,9 @@ std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
         }
     }
     int rand = std::rand() % score;
-    qDebug() << "Min";
-    for  (auto i : arr ) {
-        qDebug() << i.first << i.second;
-        if ( i.first == min && !rand--) {
+    for  (auto i : arr )
+        if ( i.first == min && !rand--)
             return i;
-        }
-    }
     return {0, 0};
 }
 
@@ -57,7 +47,7 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_comple
         return {static_cast<short>(wing), 0};
     }
     if ( score == LEN * LEN + 1 ||
-         score_complexity >= static_cast<int>(this->_complexity))  {
+        score_complexity >= static_cast<int>(this->_complexity) ) {
         return {0, -1};
     }
     std::vector<std::pair<int, int> > arr;

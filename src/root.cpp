@@ -4,7 +4,7 @@
 #include "ui_root.h"
 
 #include <QActionGroup>
-#ifndef QT_DEBUG
+#ifdef QT_DEBUG
 #include <QDebug>
 #endif
 
@@ -12,10 +12,10 @@
 Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
     _complexity_game(TicTacToe::COMPLEXITY::AVERAGE), _game(_complexity_game)
 {
-    
+
     this->_ui->setupUi(this);
     this->setWindowTitle(NAME_WINDOW);
-    this->_ui->updateButton->setIcon(QIcon(":/image/update.png"));
+    this->_ui->updateButton->setIcon(QIcon(IMAGE_UPDATE));
     this->_ui->updateButton->setIconSize(QSize(this->_ui->updateButton->size()));
     this->_button_cell = QVector<Cell*>(
                 {this->_ui->cell1, this->_ui->cell2, this->_ui->cell3,
@@ -34,12 +34,10 @@ Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
     group->addAction(this->_ui->complexity_2);
     group->addAction(this->_ui->complexity_3);
     group->setExclusive(true);
-    return ;
 }
 
 Root::~Root() {
     delete this->_ui;
-    return ;
 }
 
 void Root::_buttonPress(int index) {
@@ -47,7 +45,6 @@ void Root::_buttonPress(int index) {
     this->_installCell(index, type_cell);
     auto valueBot = this->_game.setBot();
     this->_installCell(valueBot.second, valueBot.first);
-    return ;
 }
 
 void Root::_installCell(int index, TicTacToe::CELL_VALUE type_cell) {
