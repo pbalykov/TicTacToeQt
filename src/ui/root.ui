@@ -34,7 +34,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QLCDNumber" name="lcdNumber">
+       <widget class="QLCDNumber" name="lcdCross">
         <property name="maximumSize">
          <size>
           <width>64</width>
@@ -99,7 +99,7 @@
        </spacer>
       </item>
       <item>
-       <widget class="QLCDNumber" name="lcdNumber_2">
+       <widget class="QLCDNumber" name="lcdZero">
         <property name="maximumSize">
          <size>
           <width>64</width>

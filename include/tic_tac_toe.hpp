@@ -36,6 +36,8 @@ private:
     short _score;
     bool _game;
     COMPLEXITY _complexity;
+    CELL_VALUE _first_move;
+
 };
 
 #endif

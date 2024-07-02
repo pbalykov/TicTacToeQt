@@ -52,11 +52,32 @@ void Root::_create_group() {
 }
 
 void Root::_buttonPress(int index) {
+    if ( this->_game.getEndGame() ) {
+        return ;
+    }
     auto type_cell = this->_game.setValue(index);
     this->_installCell(index, type_cell);
     if ( !this->_isTwoPlayers ) {
         auto valueBot = this->_game.setBot();
         this->_installCell(valueBot.second, valueBot.first);
+    }
+    if ( this->_game.getEndGame() ) {
+        int value = 0;
+#ifdef QT_DEBUG
+        qDebug() << "END_GAME";
+#endif
+        switch ( this->_game.getWing() ) {
+            case TicTacToe::CELL_VALUE::ZERO :
+                value = this->_ui->lcdZero->value() + 1;
+                this->_ui->lcdZero->display(value);
+                break;
+            case TicTacToe::CELL_VALUE::CROSS :
+                value = this->_ui->lcdCross->value() + 1;
+                this->_ui->lcdCross->display(value);
+                break;
+            default:
+                break;
+        }
     }
 }
 

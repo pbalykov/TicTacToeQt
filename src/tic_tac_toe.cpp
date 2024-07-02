@@ -5,6 +5,7 @@
 #include <vector>
 
 
+
 std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
     int max = -1;
@@ -70,8 +71,8 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_comple
     return this->_min(arr);
 }
 
-TicTacToe::TicTacToe(COMPLEXITY complexity) : _score(0),
-    _game(true), _complexity(complexity){}
+TicTacToe::TicTacToe(COMPLEXITY complexity) :
+    _score(0), _game(true), _complexity(complexity) {}
 
 TicTacToe::CELL_VALUE TicTacToe::setValue(short index) {
     if ( !this->_game ) {
@@ -80,17 +81,17 @@ TicTacToe::CELL_VALUE TicTacToe::setValue(short index) {
     short x = index % LEN;
     short y = index / LEN;
     if  ( !this->_data[y][x] ) {
-        this->_data[y][x] = this->_score % 2 == 0 ?
+        this->_data[y][x] = this->_score++ % 2 == 0 ?
              static_cast<int>(CELL_VALUE::CROSS) : static_cast<int>(CELL_VALUE::ZERO);
-        this->_game = this->getWing() != CELL_VALUE::NONE || this->_score == LEN * LEN ? false : true;
-        this->_score++;
+        this->_game = this->getWing() != CELL_VALUE::NONE ||
+                                    this->_score == LEN * LEN ? false : true;
         return static_cast<CELL_VALUE>(this->_data[y][x]);
     }
     return CELL_VALUE::NONE;
 }
 
 bool TicTacToe::getEndGame() const {
-    return this->_game;
+    return !this->_game;
 }
 
 TicTacToe::CELL_VALUE TicTacToe::getWing() const {
