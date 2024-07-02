@@ -10,7 +10,8 @@
 
 
 Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
-    _complexity_game(TicTacToe::COMPLEXITY::AVERAGE), _game(_complexity_game)
+    _complexity_game(TicTacToe::COMPLEXITY::AVERAGE), _game(_complexity_game),
+  _isTwoPlayers(false)
 {
 
     this->_ui->setupUi(this);
@@ -29,22 +30,32 @@ Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
         QObject::connect(i, &Cell::clicked, f_slot);
         caunt++;
     }
-    QActionGroup *group = new QActionGroup(this);
-    group->addAction(this->_ui->complexity_1);
-    group->addAction(this->_ui->complexity_2);
-    group->addAction(this->_ui->complexity_3);
-    group->setExclusive(true);
+    group1 = new QActionGroup(this);
+    group1->addAction(this->_ui->complexity_1);
+    group1->addAction(this->_ui->complexity_2);
+    group1->addAction(this->_ui->complexity_3);
+    group1->setExclusive(true);
+   // group1->setEnabled(false);
+
+
+    QActionGroup *group2 = new QActionGroup(this);
+    group2->addAction(this->_ui->first_player);
+    group2->addAction(this->_ui->second_player);
+    group2->setExclusive(true);
 }
 
 Root::~Root() {
+    delete this->group1;
     delete this->_ui;
 }
 
 void Root::_buttonPress(int index) {
     auto type_cell = this->_game.setValue(index);
     this->_installCell(index, type_cell);
-    auto valueBot = this->_game.setBot();
-    this->_installCell(valueBot.second, valueBot.first);
+    if ( !this->_isTwoPlayers ) {
+        auto valueBot = this->_game.setBot();
+        this->_installCell(valueBot.second, valueBot.first);
+    }
 }
 
 void Root::_installCell(int index, TicTacToe::CELL_VALUE type_cell) {
@@ -93,5 +104,23 @@ void Root::on_complexity_2_triggered() {
 
 void Root::on_complexity_3_triggered() {
     this->_complexity_game = TicTacToe::COMPLEXITY::COMPLEX;
+    this->on_updateButton_clicked();
+}
+
+void Root::on_first_player_triggered() {
+    if ( !this->_isTwoPlayers ) {
+        return ;
+    }
+    this->_isTwoPlayers = false;
+    this->_ui->menu_complexity->setEnabled(true);
+    this->on_updateButton_clicked();
+}
+
+void Root::on_second_player_triggered() {
+    if ( this->_isTwoPlayers ) {
+        return ;
+    }
+    this->_isTwoPlayers = true;
+    this->_ui->menu_complexity->setEnabled(false);
     this->on_updateButton_clicked();
 }

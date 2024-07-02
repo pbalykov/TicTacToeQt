@@ -309,7 +309,7 @@
     <property name="title">
      <string>Игра</string>
     </property>
-    <widget class="QMenu" name="difficulty_level">
+    <widget class="QMenu" name="menu_complexity">
      <property name="tearOffEnabled">
       <bool>false</bool>
      </property>
@@ -326,11 +326,20 @@
      <addaction name="complexity_2"/>
      <addaction name="complexity_3"/>
     </widget>
+    <widget class="QMenu" name="menu_3">
+     <property name="title">
+      <string>Количество игроков</string>
+     </property>
+     <addaction name="first_player"/>
+     <addaction name="second_player"/>
+    </widget>
     <addaction name="new_game"/>
     <addaction name="separator"/>
-    <addaction name="difficulty_level"/>
+    <addaction name="menu_3"/>
     <addaction name="separator"/>
-    <addaction name="action_exit_2"/>
+    <addaction name="menu_complexity"/>
+    <addaction name="separator"/>
+    <addaction name="action_exit"/>
    </widget>
    <widget class="QMenu" name="menu_2">
     <property name="title">
@@ -354,12 +363,9 @@
     <string>F2</string>
    </property>
   </action>
-  <action name="action_exit">
+  <action name="number_players">
    <property name="text">
     <string>Выход</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+Q</string>
    </property>
   </action>
   <action name="call_help">
@@ -400,12 +406,31 @@
     <string>Сложный</string>
    </property>
   </action>
-  <action name="action_exit_2">
+  <action name="action_exit">
    <property name="text">
     <string>Выход</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="first_player">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Один игрок</string>
+   </property>
+  </action>
+  <action name="second_player">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Два игрока</string>
    </property>
   </action>
  </widget>

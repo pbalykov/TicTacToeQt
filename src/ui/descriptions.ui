@@ -40,14 +40,23 @@
      <property name="enabled">
       <bool>true</bool>
      </property>
+     <property name="minimumSize">
+      <size>
+       <width>100</width>
+       <height>100</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
-       <width>90</width>
-       <height>90</height>
+       <width>100</width>
+       <height>100</height>
       </size>
      </property>
      <property name="text">
-      <string>image</string>
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../../resources/resources.qrc">:/image/icon.png</pixmap>
      </property>
     </widget>
    </item>
@@ -56,7 +65,7 @@
      <item>
       <widget class="QLabel" name="label_2">
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:696;&quot;&gt;TicTacToeQt v. beta&lt;/span&gt;&lt;br/&gt;Author: pbalykov&lt;br/&gt;license: &lt;a href=&quot;https://github.com/pbalykov/tic_tac_toe_qt/blob/main/LICENSE&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GPL-3.0 license&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;Sourse: &lt;a href=&quot;https://github.com/pbalykov/tic_tac_toe_qt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;github.com&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;Githab author: &lt;a href=&quot;https://github.com/pbalykov&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;github.com/pbalykov&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:696;&quot;&gt;TicTacToeQt v. beta&lt;/span&gt;&lt;br/&gt;Автор: pbalykov&lt;br/&gt;Лицензия: &lt;a href=&quot;https://github.com/pbalykov/tic_tac_toe_qt/blob/main/LICENSE&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;GPL-3.0 license&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;Исходники: &lt;a href=&quot;https://github.com/pbalykov/tic_tac_toe_qt&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;github.com&lt;/span&gt;&lt;/a&gt;&lt;br/&gt;Githab автора: &lt;a href=&quot;https://github.com/pbalykov&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#007af4;&quot;&gt;github.com/pbalykov&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
@@ -88,6 +97,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../../resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

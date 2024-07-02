@@ -7,12 +7,6 @@ Descriptions::Descriptions(QWidget* parent) :
     this->setWindowFlags(this->windowFlags() & ~Qt::WindowContextHelpButtonHint);
     this->_ui->setupUi(this);
     this->setWindowTitle(NAME_WINDOW);
-
-    int maxWidth = this->_ui->icon->width();
-    int maxHeight = this->_ui->icon->height();
-    QPixmap icon(NAME_ICON);
-    this->_ui->icon->setPixmap(icon.scaled(maxWidth, maxHeight, Qt::IgnoreAspectRatio));
-    this->_ui->icon->setScaledContents(true);
 }
 
 Descriptions::~Descriptions() {

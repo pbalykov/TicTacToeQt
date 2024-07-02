@@ -3,6 +3,9 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++17
+CONFIG += lrelease
+CONFIG += embed_translations
+
 
 SOURCES += \
     src/cell.cpp \
@@ -23,10 +26,6 @@ FORMS += \
 
 TRANSLATIONS += \
     translations/tic_tac_toe_qt_en_US.ts
-
-CONFIG += lrelease
-CONFIG += embed_translations
-
 
 RESOURCES += \
     resources/resources.qrc

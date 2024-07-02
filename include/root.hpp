@@ -1,6 +1,7 @@
 #ifndef ROOT_H
 #define ROOT_H
 
+#include <QActionGroup>
 #include <QMainWindow>
 #include <QPushButton>
 #include <QVector>
@@ -36,6 +37,10 @@ private slots:
 
     void on_complexity_3_triggered();
 
+    void on_first_player_triggered();
+
+    void on_second_player_triggered();
+
 private:
     void _installCell(int index, TicTacToe::CELL_VALUE type_cell);
     void _buttonPress(int index);
@@ -44,6 +49,9 @@ private:
     QVector<Cell*> _button_cell;
     TicTacToe::COMPLEXITY _complexity_game;
     TicTacToe _game;
+    bool _isTwoPlayers;
+
+    QActionGroup *group1;
 };
 
 #endif
