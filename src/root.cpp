@@ -66,17 +66,14 @@ void Root::on_updateButton_clicked() {
         i->clear();
     }
     this->_game = TicTacToe(this->_complexity_game);
-    return ;
 }
 
 void Root::on_action_exit_triggered() {
     this->close();
-    return ;
 }
 
 void Root::on_new_game_triggered() {
     this->on_updateButton_clicked();
-    return ;
 }
 
 void Root::on_call_help_triggered() {
