@@ -70,11 +70,8 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_comple
     return this->_min(arr);
 }
 
-TicTacToe::TicTacToe(COMPLEXITY complexity) :
-    _score(0), _game(true), _complexity(complexity)
-{
-    return ;
-}
+TicTacToe::TicTacToe(COMPLEXITY complexity) : _score(0),
+    _game(true), _complexity(complexity){}
 
 TicTacToe::CELL_VALUE TicTacToe::setValue(short index) {
     if ( !this->_game ) {

@@ -9,6 +9,7 @@ class Descriptions;
 
 class Descriptions : public QDialog {
     Q_OBJECT
+
     static constexpr const char* NAME_WINDOW = "О программе\"TicTacToeQt\"";
 public:
     explicit Descriptions(QWidget* parent = nullptr);

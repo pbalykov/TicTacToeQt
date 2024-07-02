@@ -26,22 +26,19 @@ private slots:
     void on_updateButton_clicked();
 
     void on_action_exit_triggered();
-
     void on_new_game_triggered();
-
     void on_call_help_triggered();
 
     void on_complexity_1_triggered();
-
     void on_complexity_2_triggered();
-
     void on_complexity_3_triggered();
 
     void on_first_player_triggered();
-
     void on_second_player_triggered();
 
 private:
+    void _create_group();
+
     void _installCell(int index, TicTacToe::CELL_VALUE type_cell);
     void _buttonPress(int index);
 
@@ -52,6 +49,7 @@ private:
     bool _isTwoPlayers;
 
     QActionGroup *group1;
+    QActionGroup *group2;
 };
 
 #endif

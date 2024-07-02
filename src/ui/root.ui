@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Root</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../resources/resources.qrc">
+    <normaloff>:/image/icon.png</normaloff>:/image/icon.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout">
     <item>
@@ -60,6 +64,12 @@
       </item>
       <item>
        <widget class="QPushButton" name="updateButton">
+        <property name="minimumSize">
+         <size>
+          <width>64</width>
+          <height>64</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>64</width>
@@ -68,6 +78,10 @@
         </property>
         <property name="text">
          <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../../resources/resources.qrc">
+          <normaloff>:/image/update.png</normaloff>:/image/update.png</iconset>
         </property>
        </widget>
       </item>
@@ -302,7 +316,7 @@
      <x>0</x>
      <y>0</y>
      <width>277</width>
-     <height>21</height>
+     <height>24</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -441,6 +455,8 @@
    <header>include/cell.hpp</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../../resources/resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

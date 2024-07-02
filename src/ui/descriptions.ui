@@ -34,6 +34,10 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../../resources/resources.qrc">
+    <normaloff>:/image/icon.png</normaloff>:/image/icon.png</iconset>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
     <widget class="QLabel" name="icon">

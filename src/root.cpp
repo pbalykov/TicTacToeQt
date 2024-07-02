@@ -16,8 +16,7 @@ Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
 
     this->_ui->setupUi(this);
     this->setWindowTitle(NAME_WINDOW);
-    this->_ui->updateButton->setIcon(QIcon(IMAGE_UPDATE));
-    this->_ui->updateButton->setIconSize(QSize(this->_ui->updateButton->size()));
+
     this->_button_cell = QVector<Cell*>(
                 {this->_ui->cell1, this->_ui->cell2, this->_ui->cell3,
                  this->_ui->cell4, this->_ui->cell5, this->_ui->cell6,
@@ -30,23 +29,26 @@ Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
         QObject::connect(i, &Cell::clicked, f_slot);
         caunt++;
     }
-    group1 = new QActionGroup(this);
-    group1->addAction(this->_ui->complexity_1);
-    group1->addAction(this->_ui->complexity_2);
-    group1->addAction(this->_ui->complexity_3);
-    group1->setExclusive(true);
-   // group1->setEnabled(false);
-
-
-    QActionGroup *group2 = new QActionGroup(this);
-    group2->addAction(this->_ui->first_player);
-    group2->addAction(this->_ui->second_player);
-    group2->setExclusive(true);
+    this->_create_group();
 }
 
 Root::~Root() {
     delete this->group1;
+    delete this->group2;
     delete this->_ui;
+}
+
+void Root::_create_group() {
+    this->group1 = new QActionGroup(this);
+    this->group1->addAction(this->_ui->complexity_1);
+    this->group1->addAction(this->_ui->complexity_2);
+    this->group1->addAction(this->_ui->complexity_3);
+    this->group1->setExclusive(true);
+
+    this->group2 = new QActionGroup(this);
+    this->group2->addAction(this->_ui->first_player);
+    this->group2->addAction(this->_ui->second_player);
+    this->group2->setExclusive(true);
 }
 
 void Root::_buttonPress(int index) {
