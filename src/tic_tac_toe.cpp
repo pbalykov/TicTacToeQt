@@ -5,7 +5,6 @@
 #include <vector>
 
 
-
 std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
     int max = -1;

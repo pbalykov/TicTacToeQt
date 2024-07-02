@@ -8,4 +8,4 @@
 
 ## Авторы
 
-* **Балыков П. Д.** - *разработчик* - [github](https://github.com/pbalykov)
+* **pbalykov** - *разработчик* - [github](https://github.com/pbalykov)

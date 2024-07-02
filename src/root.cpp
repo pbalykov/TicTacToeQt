@@ -107,6 +107,8 @@ void Root::on_action_exit_triggered() {
 }
 
 void Root::on_new_game_triggered() {
+    this->_ui->lcdZero->display(0);
+    this->_ui->lcdCross->display(0);
     this->on_updateButton_clicked();
 }
 
@@ -117,17 +119,17 @@ void Root::on_call_help_triggered() {
 
 void Root::on_complexity_1_triggered() {
     this->_complexity_game = TicTacToe::COMPLEXITY::LIGHT;
-    this->on_updateButton_clicked();
+    this->on_new_game_triggered();
 }
 
 void Root::on_complexity_2_triggered() {
     this->_complexity_game = TicTacToe::COMPLEXITY::AVERAGE;
-    this->on_updateButton_clicked();
+    this->on_new_game_triggered();
 }
 
 void Root::on_complexity_3_triggered() {
     this->_complexity_game = TicTacToe::COMPLEXITY::COMPLEX;
-    this->on_updateButton_clicked();
+    this->on_new_game_triggered();
 }
 
 void Root::on_first_player_triggered() {
@@ -136,7 +138,7 @@ void Root::on_first_player_triggered() {
     }
     this->_isTwoPlayers = false;
     this->_ui->menu_complexity->setEnabled(true);
-    this->on_updateButton_clicked();
+    this->on_new_game_triggered();
 }
 
 void Root::on_second_player_triggered() {
@@ -145,5 +147,5 @@ void Root::on_second_player_triggered() {
     }
     this->_isTwoPlayers = true;
     this->_ui->menu_complexity->setEnabled(false);
-    this->on_updateButton_clicked();
+    this->on_new_game_triggered();
 }
