@@ -41,6 +41,23 @@ std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
     return {0, 0};
 }
 
+TicTacToe::CELL_VALUE TicTacToe::_getCellValue() const {
+    int surplus = this->_score % 2;
+    CELL_VALUE retValue;
+    switch ( this->_first_move ) {
+        case ( CELL_VALUE::CROSS ) :
+            retValue = surplus ? CELL_VALUE::ZERO : CELL_VALUE::CROSS;
+            break;
+        case ( CELL_VALUE::ZERO ) :
+            retValue = surplus ? CELL_VALUE::CROSS : CELL_VALUE::ZERO;
+            break;
+        default:
+            retValue = CELL_VALUE::NONE;
+            break;
+    }
+    return retValue;
+}
+
 std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_complexity) {
     auto wing = getWing();
     if ( wing != CELL_VALUE::NONE ) {
@@ -51,8 +68,8 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_comple
         return {0, -1};
     }
     std::vector<std::pair<int, int> > arr;
-    CELL_VALUE newCell = (cell == CELL_VALUE::CROSS ? 
-                                        CELL_VALUE::ZERO : CELL_VALUE::CROSS);
+    CELL_VALUE newCell = (cell == CELL_VALUE::CROSS ?
+                              CELL_VALUE::ZERO : CELL_VALUE::CROSS);
     for (int i = 0; i < LEN; i++) {
         for (int j = 0; j < LEN; j++) {
             if ( this->_data[i][j] == 0 ) {
@@ -70,8 +87,12 @@ std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_comple
     return this->_min(arr);
 }
 
-TicTacToe::TicTacToe(COMPLEXITY complexity) :
-    _score(0), _game(true), _complexity(complexity) {}
+TicTacToe::TicTacToe(COMPLEXITY complexity, CELL_VALUE first_move) :
+    _score(0), _game(true), _complexity(complexity), _first_move(first_move) {}
+
+TicTacToe::CELL_VALUE TicTacToe::getFirstMove() const {
+    return this->_first_move;
+}
 
 TicTacToe::CELL_VALUE TicTacToe::setValue(short index) {
     if ( !this->_game ) {
@@ -80,10 +101,9 @@ TicTacToe::CELL_VALUE TicTacToe::setValue(short index) {
     short x = index % LEN;
     short y = index / LEN;
     if  ( !this->_data[y][x] ) {
-        this->_data[y][x] = this->_score++ % 2 == 0 ?
-             static_cast<int>(CELL_VALUE::CROSS) : static_cast<int>(CELL_VALUE::ZERO);
+        this->_data[y][x] = static_cast<int>(this->_getCellValue());
         this->_game = this->getWing() != CELL_VALUE::NONE ||
-                                    this->_score == LEN * LEN ? false : true;
+                                    ++this->_score == LEN * LEN ? false : true;
         return static_cast<CELL_VALUE>(this->_data[y][x]);
     }
     return CELL_VALUE::NONE;

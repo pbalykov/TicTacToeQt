@@ -19,8 +19,11 @@ public:
         COMPLEX = LEN * LEN + 1,
     };
     
-    TicTacToe(COMPLEXITY complexity = COMPLEXITY::LIGHT);
+    TicTacToe(COMPLEXITY complexity = COMPLEXITY::LIGHT,
+              CELL_VALUE first_move = CELL_VALUE::CROSS);
     
+    CELL_VALUE getFirstMove() const;
+
     bool getEndGame() const;
     CELL_VALUE getWing() const;
 
@@ -31,6 +34,8 @@ private:
     std::pair<int, int> _bot(int score, CELL_VALUE cell, int score_complexity) ;
     std::pair<int, int> _max(std::vector<std::pair<int, int> >& arr);
     std::pair<int, int> _min(std::vector<std::pair<int, int> >& arr);
+
+    CELL_VALUE _getCellValue() const;
 
     short _data[LEN][LEN] = {{0}, {0}, {0}};
     short _score;
