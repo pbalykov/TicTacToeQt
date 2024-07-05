@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <vector>
 
-
 std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
     int max = -LEN * LEN;
@@ -59,14 +58,15 @@ TicTacToe::CELL_VALUE TicTacToe::_getCellValue() const {
 }
 
 std::pair<int, int> TicTacToe::_bot(int score, CELL_VALUE cell, int score_complexity) {
+    if ( score == 0 ) {
+        return {static_cast<int>(cell), std::rand() % (LEN * LEN)};
+    }
     auto wing = getWing();
-    if ( wing != CELL_VALUE::NONE ) {
-        return {static_cast<short>(wing), 0};
-    }
+    if ( wing != CELL_VALUE::NONE )
+        return {static_cast<int>(wing), 0};
     if ( score == LEN * LEN + 1 ||
-        score_complexity >= static_cast<int>(this->_complexity) ) {
+         score_complexity >= static_cast<int>(this->_complexity) )
         return {0, -1};
-    }
     std::vector<std::pair<int, int> > arr;
     CELL_VALUE newCell = (cell == CELL_VALUE::CROSS ?
                               CELL_VALUE::ZERO : CELL_VALUE::CROSS);
@@ -140,8 +140,8 @@ std::pair<TicTacToe::CELL_VALUE, int> TicTacToe::setBot() {
     if ( !this->_game ) {
         return {CELL_VALUE::NONE, -1};
     }
-    CELL_VALUE cell = (this->_score + 1) % 2 ? CELL_VALUE::CROSS : CELL_VALUE::ZERO;
-    auto value = this->_bot(this->_score + 1, cell, 0);
+    CELL_VALUE cell = this->_getCellValue();
+    auto value = this->_bot(this->_score, cell, 0);
     if ( value.second == -1 ) {
         return {CELL_VALUE::NONE, -1};
     }
