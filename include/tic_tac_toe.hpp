@@ -6,6 +6,7 @@
 class TicTacToe {
 public:
     static constexpr short LEN = 3;
+    static constexpr short PLAYER_COUNT = 2;
 
     enum class CELL_VALUE {
         NONE = 0,

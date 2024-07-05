@@ -7,7 +7,7 @@
 
 std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
-    int max = -1;
+    int max = -LEN * LEN;
     for (auto i : arr) {        
         if ( i.first > max ) {
             max = i.first;
@@ -25,7 +25,7 @@ std::pair<int, int> TicTacToe::_max(std::vector<std::pair<int, int> >& arr) {
 
 std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
     int score = 0;
-    int min = LEN * LEN + 1;
+    int min = LEN * LEN;
     for (auto i : arr) {
         if ( i.first < min ) {
             min = i.first;
@@ -42,7 +42,7 @@ std::pair<int, int> TicTacToe::_min(std::vector<std::pair<int, int> >& arr) {
 }
 
 TicTacToe::CELL_VALUE TicTacToe::_getCellValue() const {
-    int surplus = this->_score % 2;
+    int surplus = this->_score % PLAYER_COUNT;
     CELL_VALUE retValue;
     switch ( this->_first_move ) {
         case ( CELL_VALUE::CROSS ) :

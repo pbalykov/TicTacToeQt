@@ -10,8 +10,8 @@
 
 
 Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
-    _complexity_game(TicTacToe::COMPLEXITY::AVERAGE), _game(_complexity_game),
-  _isTwoPlayers(false)
+    _complexity_game(TicTacToe::COMPLEXITY::AVERAGE), _isTwoPlayers(false),
+    _first_move(TicTacToe::CELL_VALUE::CROSS), _game(_complexity_game, _first_move)
 {
 
     this->_ui->setupUi(this);
@@ -92,14 +92,19 @@ void Root::_installCell(int index, TicTacToe::CELL_VALUE type_cell) {
         default :
             break;
     }
-    return ;
 }
 
 void Root::on_updateButton_clicked() {
     for (auto i : this->_button_cell) {
         i->clear();
     }
-    this->_game = TicTacToe(this->_complexity_game);
+    this->_first_move = this->_first_move == TicTacToe::CELL_VALUE::CROSS ?
+                TicTacToe::CELL_VALUE::ZERO : TicTacToe::CELL_VALUE::CROSS;
+    this->_game = TicTacToe(this->_complexity_game, this->_first_move);
+    if ( this->_first_move == TicTacToe::CELL_VALUE::ZERO && !this->_isTwoPlayers ) {
+        auto valueBot = this->_game.setBot();
+        this->_installCell(valueBot.second, valueBot.first);
+    }
 }
 
 void Root::on_action_exit_triggered() {
@@ -109,6 +114,7 @@ void Root::on_action_exit_triggered() {
 void Root::on_new_game_triggered() {
     this->_ui->lcdZero->display(0);
     this->_ui->lcdCross->display(0);
+    _first_move = TicTacToe::CELL_VALUE::ZERO;
     this->on_updateButton_clicked();
 }
 

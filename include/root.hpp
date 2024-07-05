@@ -43,10 +43,14 @@ private:
     void _buttonPress(int index);
 
     Ui::Root* _ui;
+
     QVector<Cell*> _button_cell;
+
     TicTacToe::COMPLEXITY _complexity_game;
+    TicTacToe::CELL_VALUE _first_move;
     TicTacToe _game;
     bool _isTwoPlayers;
+
 
     QActionGroup *group1;
     QActionGroup *group2;
