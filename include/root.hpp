@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QPushButton>
 #include <QVector>
+
 #include "tic_tac_toe.hpp"
 #include "cell.hpp"
 
@@ -39,6 +40,7 @@ private slots:
 private:
     void _create_group();
 
+    void _endGame();
     void _installCell(int index, TicTacToe::CELL_VALUE type_cell);
     void _buttonPress(int index);
 
