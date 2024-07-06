@@ -17,7 +17,7 @@ public:
     enum class COMPLEXITY {
         LIGHT = 1,
         AVERAGE = LEN ,
-        COMPLEX = LEN * LEN + 1,
+        COMPLEX = LEN * LEN,
     };
     
     TicTacToe(COMPLEXITY complexity = COMPLEXITY::LIGHT,
