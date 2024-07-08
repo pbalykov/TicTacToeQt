@@ -17,6 +17,8 @@ Root::Root(QWidget* parent) : QMainWindow(parent), _ui(new Ui::Root),
     this->_ui->setupUi(this);
     this->setWindowTitle(NAME_WINDOW);
 
+    this->_ui->gameStatus->hide();
+
     this->_button_cell = QVector<Cell*>(
                 {this->_ui->cell1, this->_ui->cell2, this->_ui->cell3,
                  this->_ui->cell4, this->_ui->cell5, this->_ui->cell6,
@@ -53,17 +55,24 @@ void Root::_create_group() {
 
 void Root::_endGame() {
     if ( this->_game.getEndGame() ) {
+        this->_ui->gameStatus->show();
         int value = 0;
         switch ( this->_game.getWing() ) {
             case TicTacToe::CELL_VALUE::ZERO :
                 value = this->_ui->lcdZero->value();
                 this->_ui->lcdZero->display(++value);
+                this->_ui->gameStatus->setStyleSheet(Cell::CSS_ZERO);
+                this->_ui->gameStatus->setText(WING_ZERO);
                 break;
             case TicTacToe::CELL_VALUE::CROSS :
                 value = this->_ui->lcdCross->value();
                 this->_ui->lcdCross->display(++value);
+                this->_ui->gameStatus->setStyleSheet(Cell::CSS_CROSS);
+                this->_ui->gameStatus->setText(WING_CROSS);
                 break;
             default:
+                this->_ui->gameStatus->setStyleSheet(Cell::CSS_DEFAULT);
+                this->_ui->gameStatus->setText(DRAW);
                 break;
         }
     }
@@ -95,6 +104,7 @@ void Root::_installCell(int index, TicTacToe::CELL_VALUE type_cell) {
 }
 
 void Root::on_updateButton_clicked() {
+    this->_ui->gameStatus->hide();
     for (auto i : this->_button_cell) {
         i->clear();
     }

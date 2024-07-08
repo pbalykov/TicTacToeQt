@@ -41,11 +41,18 @@
           <height>60</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true">
+</string>
+        </property>
         <property name="frameShape">
          <enum>QFrame::Box</enum>
         </property>
         <property name="mode">
          <enum>QLCDNumber::Dec</enum>
+        </property>
+        <property name="intValue" stdset="0">
+         <number>0</number>
         </property>
        </widget>
       </item>
@@ -75,6 +82,10 @@
           <width>64</width>
           <height>60</height>
          </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">:hover {
+}</string>
         </property>
         <property name="text">
          <string/>
@@ -106,9 +117,22 @@
           <height>60</height>
          </size>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
        </widget>
       </item>
      </layout>
+    </item>
+    <item>
+     <widget class="QLabel" name="gameStatus">
+      <property name="text">
+       <string>status</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </item>
     <item>
      <layout class="QGridLayout" name="folder">

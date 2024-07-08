@@ -19,6 +19,11 @@ class Root : public QMainWindow {
     static constexpr const char* NAME_WINDOW = "TicTacToeQt";
     static constexpr const char* IMAGE_UPDATE = ":/image/update.png";
 
+    static constexpr const char* WING_CROSS = "Выйграли Крестики!";
+    static constexpr const char* WING_ZERO = "Выйграли Нолики!";
+    static constexpr const char* DRAW = "Ничья";
+
+
 public:
     Root(QWidget* parent = nullptr);
     ~Root();
