@@ -34,9 +34,7 @@
     ./TicTacToeQt #Linux 
     ./TicTacToeQt.app/Contents/MacOS/TicTacToeQt # MacOs
 ```
-## Версия игры
-
-**1.0.0.0** 
+## Версия игры **1.0.0.0** 
 
 ## Авторы
 
