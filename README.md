@@ -9,6 +9,9 @@
      <img src="./gif/gameplay.gif" height="250" width="250" /><br><br>
 </div>
 
+## Версия 
+1.0.0.0
+
 ## Зависимости ПО
 * QMake 3.1
 * GNU Make 3.81
