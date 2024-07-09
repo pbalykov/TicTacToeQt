@@ -6,7 +6,7 @@
 ## Видио игры
 
 <div id="header" align="center">
-     <img src="./gif/gameplay.gif" height="350" width="350" /><br><br>
+     <img src="./gif/gameplay.gif" height="250" width="250" /><br><br>
 </div>
 
 ## Зависимости ПО

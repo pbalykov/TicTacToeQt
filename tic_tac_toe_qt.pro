@@ -8,6 +8,7 @@ CONFIG += c++17
 CONFIG += lrelease
 CONFIG += embed_translations
 
+RC_FILE += resources\app.rc
 
 SOURCES += \
     src/cell.cpp \
